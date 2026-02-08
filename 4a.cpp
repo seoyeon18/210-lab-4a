@@ -61,5 +61,11 @@ int main() {
         cout << (i + 1);
         outputColor(colors[i]) ;
     }
+
+    cout << "Milestone 4 Final Output:";
+    outputTable(colors);
+
+    return 0;
 }
+
 
