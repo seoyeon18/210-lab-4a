@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <ctime>
+#include <iomanip>
 
 using namespace std;
 
@@ -65,7 +67,49 @@ int main() {
     cout << "Milestone 4 Final Output:";
     outputTable(colors);
 
-    return 0;
+
+}
+
+int getRandomInRange(int minVal, int maxVal) {
+    int quantity = (maxVal - minVal) + 1;   // how many numbers exist in the range
+    int value = rand() % quantity;          // 0 ~ (quantity - 1)
+    value = value + minVal;                 // shift into minVal ~ maxVal
+    return value;
+}
+
+
+// makeRandomColor
+Color makeRandomColor() {
+    Color temp;
+    temp.r = getRandomInRange(0, 255);
+    temp.g = getRandomInRange(0, 255) ;
+    temp.b = getRandomInRange(0, 255);
+    return temp;
+}
+
+
+
+
+// outputTable()
+
+void outputTable(const vector<Color>& colors) {
+    cout << left
+         << setw(8)  << "Color#"
+         << setw(10) << "R value"
+         << setw(10) << "G value"
+         << setw(10) << "B value"
+         ;
+
+    cout << string(8 + 10 + 10 + 10, '-') ;
+
+    for (size_t i = 0; i < colors.size(); i++) {
+        cout << left
+             << setw(8)  << (i + 1)
+             << setw(10) << colors[i].r
+             << setw(10) << colors[i].g
+             << setw(10) << colors[i].b
+             ;
+    }
 }
 
 
